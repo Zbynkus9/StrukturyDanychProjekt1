@@ -1,5 +1,15 @@
 #include <iostream>
 
+//#include <chrono>
+// 
+//auto start = chrono::high_resolution_clock::now();
+//someAlgorithm(n);
+//auto stop = chrono::high_resolution_clock::now();
+//auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+
+//cout << "Time taken by function: "
+//	<< duration.count() << " microseconds" << endl;
+
 using namespace std;
 
 template<typename T>

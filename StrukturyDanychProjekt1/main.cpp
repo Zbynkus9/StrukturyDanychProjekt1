@@ -168,7 +168,7 @@ public:
 		}
 		delete[] arr;
 		arr = newArr;
-	};
+	}
 	void insertOnEmpty(T val) {
 		arr[size++] = DArrElement<T>(val);
 	}
@@ -231,11 +231,10 @@ public:
 		}
 	}
 	void clearArray() {
-		//delete[] arr;
 		size = 0;
 	}
 	T findByIndex(unsigned int index) {
-		if (index >= size) /*throw out_of_range("Index out of range");*/ return T();
+		if (index >= size) return T();
 		return arr[index].getValue();
 	}
 	bool findByValue(T val) {

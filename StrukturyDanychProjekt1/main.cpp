@@ -232,18 +232,18 @@ public:
 		}
 	}
 	void clearArray() {
-		delete[] arr;
+		//delete[] arr;
 		size = 0;
 	}
 	T findByIndex(unsigned int index) {
-		if (index >= size) throw out_of_range("Index out of range");
+		if (index >= size) /*throw out_of_range("Index out of range");*/ return T();
 		return arr[index].getValue();
 	}
 	T findByValue(T val) {
 		for (unsigned int i = 0; i < size; i++) {
 			if (arr[i].getValue() == val) return arr[i].getValue();
 		}
-		throw invalid_argument("Value not found");
+		/*throw invalid_argument("Value not found");*/ return T();
 	}
 private:
 	DArrElement<T>* arr;

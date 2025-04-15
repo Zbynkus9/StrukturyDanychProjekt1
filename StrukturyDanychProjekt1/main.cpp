@@ -117,7 +117,7 @@ public:
 		size = 0;
 	}
 	T findByIndex(unsigned int index) {
-		if (index >= size) /*throw out_of_range("Index out of range");*/ return T();
+		if (index >= size) return T();
 		SNode<T>* current = head;
 		for (unsigned int i = 0; i < index; i++) {
 			current = current->next;
@@ -131,13 +131,6 @@ public:
 			current = current->next;
 		}
 		return false;
-	}
-	void printList() {
-		SNode<T>* current = head;
-		while (current) {
-			cout << current->value << endl;
-			current = current->next;
-		}
 	}
 private:
 	SNode<T>* head;
@@ -269,11 +262,11 @@ int main() {
 
 	cout << "\n\nDzialania na liscie jednokierunkowej\n" << endl;
 
-	for (int i = -5; i < 0; i++) { // Wype³nienie listy pocz¹tkowymi wartoœciami
+	for (int i = -5; i < 0; i++) { // Wypeï¿½nienie listy poczï¿½tkowymi wartoï¿½ciami
 		list.addFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Dodawanie elementów na pocz¹tek listy
+	for (int i = 0; i < iteracje; i++) { // Dodawanie elementï¿½w na poczï¿½tek listy
 		auto start = chrono::high_resolution_clock::now();
 		list.addFront(i);
 		auto stop = chrono::high_resolution_clock::now();
@@ -282,15 +275,15 @@ int main() {
 	}
 
 	file.close();
-	cout << "Dodawanie elementow na pocz¹tek listy ukonczone" << endl;
+	cout << "Dodawanie elementow na poczï¿½tek listy ukonczone" << endl;
 	list.clearList(); // Czyszczenie listy przed kolejnym pomiarem
 	file.open("SLinkedlistBackInsertTime.csv");
 
-	for (int i = -5; i < 0; i++) { // Wype³nienie listy pocz¹tkowymi wartoœciami
+	for (int i = -5; i < 0; i++) { // Wypeï¿½nienie listy poczï¿½tkowymi wartoï¿½ciami
 		list.addFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Dodawanie elementów na koniec listy
+	for (int i = 0; i < iteracje; i++) { // Dodawanie elementï¿½w na koniec listy
 		auto start = chrono::high_resolution_clock::now();
 		list.addBack(i);
 		auto stop = chrono::high_resolution_clock::now();
@@ -303,11 +296,11 @@ int main() {
 	list.clearList(); // Czyszczenie listy przed kolejnym pomiarem
 	file.open("SLinkedlistAtInsertTime.csv");
 
-	for (int i = 0; i < iteracje; i++) { // Wype³nienie listy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < iteracje; i++) { // Wypeï¿½nienie listy poczï¿½tkowymi wartoï¿½ciami
 		list.addFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Dodawanie elementów na zadany indeks listy
+	for (int i = 0; i < iteracje; i++) { // Dodawanie elementï¿½w na zadany indeks listy
 		auto start = chrono::high_resolution_clock::now();
 		list.addAt(i, -i);
 		auto stop = chrono::high_resolution_clock::now();
@@ -320,11 +313,11 @@ int main() {
 	list.clearList(); // Czyszczenie listy przed kolejnym pomiarem
 	file.open("SLinkedlistRemoveFrontTime.csv");
 
-	for (int i = 0; i < iteracje; i++) { // Wype³nienie listy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < iteracje; i++) { // Wypeï¿½nienie listy poczï¿½tkowymi wartoï¿½ciami
 		list.addFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Usuwanie elementów z pocz¹tku listy
+	for (int i = 0; i < iteracje; i++) { // Usuwanie elementï¿½w z poczï¿½tku listy
 		auto start = chrono::high_resolution_clock::now();
 		list.removeFront();
 		auto stop = chrono::high_resolution_clock::now();
@@ -337,11 +330,11 @@ int main() {
 	list.clearList(); // Czyszczenie listy przed kolejnym pomiarem
 	file.open("SLinkedlistRemoveBackTime.csv");
 
-	for (int i = 0; i < iteracje; i++) { // Wype³nienie listy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < iteracje; i++) { // Wypeï¿½nienie listy poczï¿½tkowymi wartoï¿½ciami
 		list.addFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Usuwanie elementów z koñca listy
+	for (int i = 0; i < iteracje; i++) { // Usuwanie elementï¿½w z koï¿½ca listy
 		auto start = chrono::high_resolution_clock::now();
 		list.removeBack();
 		auto stop = chrono::high_resolution_clock::now();
@@ -354,11 +347,11 @@ int main() {
 	list.clearList(); // Czyszczenie listy przed kolejnym pomiarem
 	file.open("SLinkedlistRemoveAtTime.csv");
 
-	for (int i = 0; i < iteracje; i++) { // Wype³nienie listy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < iteracje; i++) { // Wypeï¿½nienie listy poczï¿½tkowymi wartoï¿½ciami
 		list.addFront(i);
 	}
 
-	for (int i = iteracje; i > 0; i--) { // Usuwanie elementów z zadanym indeksem listy
+	for (int i = iteracje; i > 0; i--) { // Usuwanie elementï¿½w z zadanym indeksem listy
 		auto start = chrono::high_resolution_clock::now();
 		list.removeAt(i);
 		auto stop = chrono::high_resolution_clock::now();
@@ -371,11 +364,11 @@ int main() {
 	list.clearList(); // Czyszczenie listy przed kolejnym pomiarem
 	file.open("SLinkedlistFindByIndexTime.csv");
 
-	for (int i = 0; i < iteracje; i++) { // Wype³nienie listy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < iteracje; i++) { // Wypeï¿½nienie listy poczï¿½tkowymi wartoï¿½ciami
 		list.addFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Szukanie elementów po indeksie listy
+	for (int i = 0; i < iteracje; i++) { // Szukanie elementï¿½w po indeksie listy
 		auto start = chrono::high_resolution_clock::now();
 		list.findByIndex(i);
 		auto stop = chrono::high_resolution_clock::now();
@@ -388,11 +381,11 @@ int main() {
 	list.clearList(); // Czyszczenie listy przed kolejnym pomiarem
 	file.open("SLinkedlistFindByValueTime.csv");
 
-	for (int i = 0; i < iteracje; i++) { // Wype³nienie listy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < iteracje; i++) { // Wypeï¿½nienie listy poczï¿½tkowymi wartoï¿½ciami
 		list.addFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Szukanie elementów po wartoœci w liœcie
+	for (int i = 0; i < iteracje; i++) { // Szukanie elementï¿½w po wartoï¿½ci w liï¿½cie
 		auto start = chrono::high_resolution_clock::now();
 		list.findByValue(i);
 		auto stop = chrono::high_resolution_clock::now();
@@ -410,11 +403,11 @@ int main() {
 
 	cout << "\n\nDzialania na tablicy dynamicznej\n" << endl;
 
-	for (int i = -5; i < 0; i++) { // Wype³nienie tablicy pocz¹tkowymi wartoœciami
+	for (int i = -5; i < 0; i++) { // Wypeï¿½nienie tablicy poczï¿½tkowymi wartoï¿½ciami
 		arr.insertOnFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Dodawanie elementów na pocz¹tek tablicy
+	for (int i = 0; i < iteracje; i++) { // Dodawanie elementï¿½w na poczï¿½tek tablicy
 		auto start = chrono::high_resolution_clock::now();
 		arr.insertOnFront(i);
 		auto stop = chrono::high_resolution_clock::now();
@@ -427,11 +420,11 @@ int main() {
 	arr.clearArray(); // Czyszczenie tablicy przed kolejnym pomiarem
 	file.open("DArrayBackInsertTime.csv");
 
-	for (int i = 0; i < 0; i++) { // Wype³nienie tablicy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < 0; i++) { // Wypeï¿½nienie tablicy poczï¿½tkowymi wartoï¿½ciami
 		arr.insertOnFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Dodawanie elementów na koniec tablicy
+	for (int i = 0; i < iteracje; i++) { // Dodawanie elementï¿½w na koniec tablicy
 		auto start = chrono::high_resolution_clock::now();
 		arr.insertOnBack(i);
 		auto stop = chrono::high_resolution_clock::now();
@@ -444,11 +437,11 @@ int main() {
 	arr.clearArray(); // Czyszczenie tablicy przed kolejnym pomiarem
 	file.open("DArrayAtInsertTime.csv");
 
-	for (int i = 0; i < iteracje; i++) { // Wype³nienie tablicy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < iteracje; i++) { // Wypeï¿½nienie tablicy poczï¿½tkowymi wartoï¿½ciami
 		arr.insertOnFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Dodawanie elementów na zadany indeks tablicy
+	for (int i = 0; i < iteracje; i++) { // Dodawanie elementï¿½w na zadany indeks tablicy
 		auto start = chrono::high_resolution_clock::now();
 		arr.insertAt(i, -i);
 		auto stop = chrono::high_resolution_clock::now();
@@ -461,11 +454,11 @@ int main() {
 	arr.clearArray(); // Czyszczenie tablicy przed kolejnym pomiarem
 	file.open("DArrayRemoveFrontTime.csv");
 
-	for (int i = 0; i < iteracje; i++) { // Wype³nienie tablicy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < iteracje; i++) { // Wypeï¿½nienie tablicy poczï¿½tkowymi wartoï¿½ciami
 		arr.insertOnFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Usuwanie elementów z pocz¹tku tablicy
+	for (int i = 0; i < iteracje; i++) { // Usuwanie elementï¿½w z poczï¿½tku tablicy
 		auto start = chrono::high_resolution_clock::now();
 		arr.removeFront();
 		auto stop = chrono::high_resolution_clock::now();
@@ -478,11 +471,11 @@ int main() {
 	arr.clearArray(); // Czyszczenie tablicy przed kolejnym pomiarem
 	file.open("DArrayRemoveBackTime.csv");
 
-	for (int i = 0; i < iteracje; i++) { // Wype³nienie tablicy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < iteracje; i++) { // Wypeï¿½nienie tablicy poczï¿½tkowymi wartoï¿½ciami
 		arr.insertOnFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Usuwanie elementów z koñca tablicy
+	for (int i = 0; i < iteracje; i++) { // Usuwanie elementï¿½w z koï¿½ca tablicy
 		auto start = chrono::high_resolution_clock::now();
 		arr.removeBack();
 		auto stop = chrono::high_resolution_clock::now();
@@ -495,11 +488,11 @@ int main() {
 	arr.clearArray(); // Czyszczenie tablicy przed kolejnym pomiarem
 	file.open("DArrayRemoveAtTime.csv");
 
-	for (int i = 0; i < iteracje; i++) { // Wype³nienie tablicy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < iteracje; i++) { // Wypeï¿½nienie tablicy poczï¿½tkowymi wartoï¿½ciami
 		arr.insertOnFront(i);
 	}
 
-	for (int i = iteracje; i > 0; i--) { // Usuwanie elementów z zadanym indeksem tablicy
+	for (int i = iteracje; i > 0; i--) { // Usuwanie elementï¿½w z zadanym indeksem tablicy
 		auto start = chrono::high_resolution_clock::now();
 		arr.removeAt(i);
 		auto stop = chrono::high_resolution_clock::now();
@@ -512,11 +505,11 @@ int main() {
 	arr.clearArray(); // Czyszczenie tablicy przed kolejnym pomiarem
 	file.open("DArrayFindByIndexTime.csv");
 
-	for (int i = 0; i < iteracje; i++) { // Wype³nienie tablicy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < iteracje; i++) { // Wypeï¿½nienie tablicy poczï¿½tkowymi wartoï¿½ciami
 		arr.insertOnFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Szukanie elementów po indeksie w tablicy
+	for (int i = 0; i < iteracje; i++) { // Szukanie elementï¿½w po indeksie w tablicy
 		auto start = chrono::high_resolution_clock::now();
 		arr.findByIndex(i);
 		auto stop = chrono::high_resolution_clock::now();
@@ -529,11 +522,11 @@ int main() {
 	arr.clearArray(); // Czyszczenie tablicy przed kolejnym pomiarem
 	file.open("DArrayFindByValueTime.csv");
 
-	for (int i = 0; i < iteracje; i++) { // Wype³nienie tablicy pocz¹tkowymi wartoœciami
+	for (int i = 0; i < iteracje; i++) { // Wypeï¿½nienie tablicy poczï¿½tkowymi wartoï¿½ciami
 		arr.insertOnFront(i);
 	}
 
-	for (int i = 0; i < iteracje; i++) { // Szukanie elementów po wartoœci w tablicy
+	for (int i = 0; i < iteracje; i++) { // Szukanie elementï¿½w po wartoï¿½ci w tablicy
 		auto start = chrono::high_resolution_clock::now();
 		arr.findByValue(i);
 		auto stop = chrono::high_resolution_clock::now();
